@@ -1,0 +1,129 @@
+/* ---------- Fonts (self-hosted, see public/fonts/LICENSES.md) ---------- */
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-medium.woff') format('woff'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-semibold.woff') format('woff'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'LM Roman'; src: url('/fonts/lmroman-display.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'LM Roman Text'; src: url('/fonts/lmroman-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'LM Roman Text'; src: url('/fonts/lmroman-italic.woff') format('woff'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'LM Mono'; src: url('/fonts/lmmono-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+
+/* ---------- Tokens ---------- */
+:root {
+  --paper: #f1f5f3;
+  --paper-deep: #e7eeeb;
+  --surface: #ffffff;
+  --ink: #15233d;
+  --ink-2: #46546f;
+  --ink-3: #6b778d;
+  --line: #d9e2de;
+  --line-strong: #bccbc5;
+  --rule: rgba(21, 35, 61, 0.055);
+
+  --model: #0f6e6a;
+  --model-deep: #0a5451;
+  --model-tint: #dff1ef;
+
+  --hl-m: #e3f25c;   /* lime highlighter: rate of change */
+  --hl-c: #9fe4dd;   /* aqua highlighter: starting value */
+  --hl-soft: #f3f9c4;
+
+  --red: #b8293f;
+  --red-bg: #fbe9ec;
+  --green: #17734c;
+  --green-bg: #e1f3ea;
+  --amber: #8f5600;
+  --amber-bg: #fff1d6;
+
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'LM Roman', 'LM Roman Text', 'Latin Modern Roman', 'Computer Modern Serif', Georgia, serif;
+  --font-math: 'LM Roman Text', 'Latin Modern Roman', Georgia, serif;
+  --font-code: 'LM Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --fs-xs: 0.8125rem;  /* 13 */
+  --fs-sm: 0.875rem;   /* 14 */
+  --fs-md: 1rem;       /* 16 */
+  --fs-lg: 1.1875rem;  /* 19 */
+  --fs-xl: 1.5rem;     /* 24 */
+  --fs-2xl: 2rem;      /* 32 */
+  --fs-3xl: 2.75rem;   /* 44 */
+  --fs-4xl: clamp(2.75rem, 5.4vw, 4.5rem);
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --shadow-pop: 0 18px 40px -18px rgba(21, 35, 61, 0.35), 0 2px 6px rgba(21, 35, 61, 0.08);
+  --focus: 0 0 0 3px var(--surface), 0 0 0 5px var(--ink);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --sidebar-w: 248px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+ul[role='list'], ol[role='list'], .nav, .trace, .activity, .mis-list, .feature-list, .steps-line, .stepper { list-style: none; }
+table { border-collapse: collapse; }
+:focus-visible { outline: none; box-shadow: var(--focus); border-radius: var(--r-sm); }
+::selection { background: var(--hl-m); color: var(--ink); }
+[hidden] { display: none !important; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 14px;
+  background: var(--ink); color: var(--surface); border-radius: var(--r-sm); text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Type ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-4xl);
+  line-height: 1.02;
+  letter-spacing: -0.012em;
+}
+.h1 { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-3xl); line-height: 1.08; letter-spacing: -0.01em; }
+.h2 { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-2xl); line-height: 1.15; }
+.h3 { font-size: var(--fs-lg); font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+.h4 { font-size: var(--fs-md); font-weight: 600; line-height: 1.35; }
+.lead { font-size: var(--fs-lg); line-height: 1.55; color: var(--ink-2); max-width: 60ch; }
+.muted { color: var(--ink-2); }
+.subtle { color: var(--ink-3); font-size: var(--fs-sm); }
+.small { font-size: var(--fs-sm); }
+.tnum { font-variant-numeric: tabular-nums; }
+.prose p + p { margin-top: 0.85em; }
+.prose { max-width: 68ch; }
+
+/* Math typesetting */
+.math { font-family: var(--font-math); font-size: 1.18em; letter-spacing: 0.01em; white-space: nowrap; }
+.math var, var { font-family: var(--font-math); font-style: italic; }
+.math .mn { font-style: normal; }
+.math sup { font-size: 0.7em; }
+.hl { padding: 0.02em 0.18em; margin: 0 -0.05em; border-radius: 0.2em 0.35em 0.25em 0.4em; color: inherit; background: none; }
+.hl-m { background: linear-gradient(100deg, transparent 2%, var(--hl-m) 6%, var(--hl-m) 92%, transparent 98%); }
+.hl-c { background: linear-gradient(100deg, transparent 2%, var(--hl-c) 6%, var(--hl-c) 92%, transparent 98%); }
+
+code, .code { font-family: var(--font-code); font-size: 0.95em; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

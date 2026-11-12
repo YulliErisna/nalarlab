@@ -1,0 +1,17 @@
+{
+  "name": "nalarlab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NalarLab — demo web lab matematika berbasis computational problem-solving untuk siswa SMP. Frontend-only, tanpa backend dan tanpa database.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs --dev",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --dir dist --port 4173",
+    "test": "node --test"
+  }
+}

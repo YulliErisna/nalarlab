@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Environment files (not used by this project, ignored for safety)
+.env
+.env.*
+
+# Deployment platform caches
+.vercel/
+.netlify/
